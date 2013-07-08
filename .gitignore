@@ -1,2 +1,3 @@
-js/vendor/
+bower-components/
 .idea/
+config/google-chrome
