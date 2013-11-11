@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Demo</title>
+    <link type="text/css" rel="stylesheet" href="../bower_components/bootstrap-css/css/bootstrap.min.css">
+    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../src/image-preloader.js"></script>
+    <script type="text/javascript">
+        'use strict';
+
+        jQuery(function ($) {
+            $('img').imagePreloader({
+                progress: function () {
+                    console.log('progress', arguments);
+                },
+                load: function () {
+                    console.log('load', arguments);
+                },
+                error: function () {
+                    console.log('error', arguments);
+                },
+                finish: function () {
+                    console.log('finish', arguments);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
-
+    <img src="http://lorempixel.com/400/200/sports/1/" alt=""/>
+    <img src="http://lorempiel.com/400/200/sports/2/" alt=""/>
+    <img src="http://lorempixel.com/400/200/sports/3/" alt=""/>
+    <img src="http://lorempixel.com/400/200/sports/4/" alt=""/>
+    <img src="http://lorempixel.com/400/200/sports/5/" alt=""/>
 </body>
 </html>

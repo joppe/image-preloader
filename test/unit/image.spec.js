@@ -4,7 +4,7 @@ describe('JavaScript addition operator', function () {
     });
 
     it('adds three numbers together', function () {
-        expect(1 + 2 + 3).toEqual(3);
+        expect(1 + 2 + 3).toEqual(6);
     });
 
     it('adds four numbers together', function () {
