@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cat src/image-preloader.js | uglifyjs -o dist/image-preloader.min.js
