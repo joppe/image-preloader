@@ -46,21 +46,6 @@
     };
 
     Status = (function () {
-        /**
-         * @param {number} loaded
-         * @param {number} failed
-         * @param {number} total
-         * @param {Function} progress
-         * @param {Function} finish
-         */
-        function update(loaded, failed, total, progress, finish) {
-            progress(loaded, failed, total);
-
-            if (failed + loaded === total) {
-                finish();
-            }
-        }
-
         return {
             /**
              * @param {number} total
@@ -71,6 +56,14 @@
                 var loaded = 0,
                     failed = 0;
 
+                function update() {
+                    listeners.progress(loaded, failed, total);
+
+                    if (failed + loaded === total) {
+                        listeners.finish();
+                    }
+                }
+
                 return {
                     /**
                      * @param {jQuery} $image
@@ -78,7 +71,7 @@
                     success: function ($image) {
                         loaded += 1;
                         listeners.load($image);
-                        update(loaded, failed, total, listeners.progress, listeners.finish);
+                        update();
                     },
 
                     /**
@@ -87,13 +80,13 @@
                     error: function ($image) {
                         failed += 1;
                         listeners.error($image);
-                        update(loaded, failed, total, listeners.progress, listeners.finish);
+                        update();
                     }
                 };
             }
         };
     }());
-
+    
     /**
      * @param {object} listeners
      * @returns {jQuery}
