@@ -2,6 +2,7 @@
 
 (function ($) {
     'use strict';
+
     /**
      * @typedef {object} Listeners
      * @property {Function} progress
