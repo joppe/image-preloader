@@ -17,19 +17,32 @@
             error: function () {},
             finish: function () {}
         },
-        loadImage,
         Status;
+
+    /**
+     * @param {jQuery} $image
+     * @returns {boolean}
+     */
+    function isCached($image) {
+        var cached = false,
+            image = $image.get(0);
+
+        if (image.complete || (image.naturalWidth !== undefined && image.naturalWidth > 0)) {
+            cached = true;
+        }
+
+        return cached;
+    }
 
     /**
      * @param {jQuery} $image
      * @param {Function} success
      * @param {Function} error
      */
-    loadImage = function ($image, success, error) {
-        var image = $image.get(0),
-            $newImage;
+    function preloadImage($image, success, error) {
+        var $newImage;
 
-        if (image.complete || (image.naturalWidth !== undefined && image.naturalWidth > 0)) {
+        if (isCached($image)) {
             success($image);
         } else {
             $newImage = $('<img>');
@@ -44,7 +57,7 @@
             });
             $newImage.prop('src', $image.prop('src'));
         }
-    };
+    }
 
     Status = (function () {
         return {
@@ -89,18 +102,32 @@
     }());
 
     /**
-     * @param {object} listeners
+     * @param {Array|string} imagePaths
+     * @param {Object} [listeners]
+     */
+    $.imagePathPreloader = function (imagePaths, listeners) {
+        var status;
+
+        // make sure imagePaths is an array
+        imagePaths = $.isArray(imagePaths) ? imagePaths : [imagePaths];
+        listeners = $.extend({}, defaultListeners, listeners || {});
+
+        status = Status.create(imagePaths.length, listeners);
+
+        $.each(imagePaths, function (index, imagePath) {
+            preloadImage($('<img src="' + imagePath + '" />'), status.success, status.error);
+        });
+    };
+
+    /**
+     * @param {Object} [listeners]
      * @returns {jQuery}
      */
     $.fn.imagePreloader = function (listeners) {
-        var status = Status.create(this.size(), $.extend({}, defaultListeners, listeners || {}));
+        var status = Status.create(this.length, $.extend({}, defaultListeners, listeners || {}));
 
         return this.each(function () {
-            loadImage($(this), function ($image) {
-                status.success($image);
-            }, function ($image) {
-                status.error($image);
-            });
+            preloadImage($(this), status.success, status.error);
         });
     };
 }(jQuery));
