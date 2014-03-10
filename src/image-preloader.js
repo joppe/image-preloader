@@ -86,7 +86,7 @@
             }
         };
     }());
-    
+
     /**
      * @param {object} listeners
      * @returns {jQuery}

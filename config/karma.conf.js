@@ -1,7 +1,7 @@
 // Karma configuration
-// Generated on Tue Oct 15 2013 17:47:15 GMT+0200 (CEST)
+// Generated on Mon Mar 10 2014 21:41:28 GMT+0100 (CET)
 
-module.exports = function(config) {
+module.exports = function (config) {
     config.set({
 
         // base path, that will be used to resolve files and exclude
@@ -80,10 +80,10 @@ module.exports = function(config) {
         // - Chrome
         // - ChromeCanary
         // - Firefox
-        // - Opera
-        // - Safari (only Mac)
+        // - Opera (has to be installed with `npm install karma-opera-launcher`)
+        // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
         // - PhantomJS
-        // - IE (only Windows)
+        // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
         browsers: ['PhantomJS'],
 
 
