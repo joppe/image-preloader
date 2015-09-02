@@ -1,11 +1,11 @@
 {
-	"name": "jQuery Image Preloader",
-	"version": "1.1.2",
-	"dependencies": {
-		"jquery": "1.8"
-    },
-    "devDependencies": {
-        "jasmine-jquery": "1.5.2",
-        "bootstrap-css": "3.0.0"
-	}
+  "name": "Image Preloader",
+  "version": "2.0.0",
+  "devDependencies": {
+    "bootstrap": "~3.3.5",
+    "jasmine-jquery": "~2.1.0"
+  },
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
 }

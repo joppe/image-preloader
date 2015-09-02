@@ -1,0 +1,39 @@
+{
+    "name": "image-preloader",
+    "private": true,
+    "version": "2.0.0",
+    "description": "Preloading images with javascript",
+    "main": "",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "babel": "babel src --stage 1 --out-dir dist --modules system",
+        "babel-watch": "babel src --stage 1 --watch --out-dir dist --modules system",
+        "karma": "node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/joppe/image-preloader.git"
+    },
+    "keywords": [
+        "js",
+        "babeljs",
+        "systemjs",
+        "symfony"
+    ],
+    "author": "Joppe Aarts",
+    "license": "MIT",
+    "devDependencies": {
+        "es6-module-loader": "^0.16.5",
+        "karma": "^0.12.31",
+        "karma-chrome-launcher": "^0.1.7",
+        "karma-jasmine": "^0.3.5",
+        "karma-systemjs": "^0.3.0",
+        "systemjs": "^0.16.7",
+        "babel": "^5.5.8"
+    },
+    "dependencies": {
+        "babel-core": "^5.1.13"
+    }
+}

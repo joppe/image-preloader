@@ -1,4 +1,4 @@
-bower_components/
+dist/*
+!dist/system.conf.js
 .idea/
-config/google-chrome
-config/phantomjs
+node_modules/
