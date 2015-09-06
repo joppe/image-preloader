@@ -2,4 +2,9 @@
 
 import {ImagePreloader} from 'image-preloader/ImagePreloader';
 
-new ImagePreloader(document.getElementsByTagName('img'));
+let preloader = new ImagePreloader(document.getElementsByTagName('img'));
+preloader.start({
+    complete() {
+        console.log('Hell yeah!');
+    }
+});

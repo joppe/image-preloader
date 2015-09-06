@@ -1,26 +1,45 @@
-import {ImageLoader} from 'image-preloader/ImageLoader';
+import {ImageLoader} from './ImageLoader';
+import {PathLoader} from './PathLoader';
+import {Status} from './Status';
 
 /**
  * @class ImagePreloader
  */
 export class ImagePreloader {
     /**
-     * @param {HTMLCollection} elements
+     * @param {string|Array|HTMLImageElement} loadables
      */
-    constructor(elements) {
-        // Create image loaders
-        let images = [].map.call(elements, function (element) {
-            let image = new ImageLoader(element);
+    constructor(loadables) {
+        this.loadables = [];
 
-            image.load(function () {
-                console.log('loaded');
-            }, function () {
-                console.log('error');
-            });
+        this.addLoadable(loadables);
+    }
 
-            return image;
+    /**
+     * @param {string|Array|HTMLImageElement|HTMLCollection} loadable
+     */
+    addLoadable(loadable) {
+        let type = Object.prototype.toString.call(loadable);
+
+        if ('[object HTMLCollection]' === type || '[object Array]' === type) {
+            [].forEach.call(loadable, this.addLoadable.bind(this));
+        } else if ('[object HTMLImageElement]' === type) {
+            this.loadables.push(new ImageLoader(loadable));
+        } else if ('[object String]' === type) {
+            this.loadables.push(new PathLoader(loadable));
+        } else {
+            throw `Unsupported type exception "$(type)"`;
+        }
+    }
+
+    /**
+     * @param {Object} listeners
+     */
+    start(listeners) {
+        let status = new Status(this.loadables.length, listeners);
+
+        this.loadables.forEach(function (loadable) {
+            loadable.load(status.load.bind(status), status.error.bind(status));
         });
-
-        console.log(images);
     }
 }

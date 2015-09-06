@@ -5,7 +5,5 @@ System.config({
 
     map: {
         jquery: 'vendor/jquery/dist/jquery'
-    },
-
-    transpiler: 'babel'
+    }
 });

@@ -1,11 +1,16 @@
+import {Loadable} from './Loadable'
+import {PathLoader} from './PathLoader'
+
 /**
  * @class ImageLoader
  */
-export class ImageLoader {
+export class ImageLoader extends Loadable {
     /**
      * @param {HTMLImageElement} image
      */
     constructor(image) {
+        super();
+
         this.image = image;
     }
 
@@ -15,7 +20,7 @@ export class ImageLoader {
     isLoaded() {
         let isLoaded = false;
 
-        if (this.image.complete || (this.image.naturalWidth !== undefined && this.image.naturalWidth > 0)) {
+        if (this.image.complete || (typeof this.image.naturalWidth !== 'undefined' && this.image.naturalWidth > 0)) {
             isLoaded = true;
         }
 
@@ -27,20 +32,17 @@ export class ImageLoader {
      * @param {Function} error
      */
     load(success, error) {
-        let image;
+        let pathLoader;
 
         if (this.isLoaded()) {
             success(this.image);
         } else {
-            image = new Image();
-            image.addEventListener('load', function () {
+            pathLoader = new PathLoader(this.image.getAttribute('src'));
+            pathLoader.load(function () {
                 success.call(null, this.image);
-            }.bind(this));
-            image.addEventListener('error', function () {
+            }.bind(this), function () {
                 error.call(null, this.image);
             }.bind(this));
-
-            image.setAttribute('src', this.image.getAttribute('src'));
         }
     }
 }
