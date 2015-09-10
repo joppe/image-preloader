@@ -3,7 +3,7 @@
     "private": true,
     "version": "2.0.0",
     "description": "Preloading images with javascript",
-    "main": "",
+    "main": "src/image-preloader/ImagePreloader.es6",
     "directories": {
         "test": "test"
     },
@@ -19,8 +19,7 @@
     "keywords": [
         "js",
         "babeljs",
-        "systemjs",
-        "symfony"
+        "systemjs"
     ],
     "author": "Joppe Aarts",
     "license": "MIT",
