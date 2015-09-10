@@ -3,6 +3,7 @@
     "version": "2.0.0",
     "devDependencies": {
         "bootstrap": "~3.3.5",
-        "jasmine-jquery": "~2.1.0"
+        "jasmine-jquery": "~2.1.0",
+        "jquery": "~2.1.4"
     }
 }

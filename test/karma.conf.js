@@ -19,37 +19,48 @@ module.exports = function (config) {
 
 
         // list of files / patterns to load in the browser
-        files: [],
+        files: [
+            // dependencies
+            {
+                pattern: 'dist/vendor/jquery/dist/jquery.js',
+                watched: false,
+                served: true,
+                included: true
+            },
+            {
+                pattern: 'dist/vendor/jasmine-jquery/lib/jasmine-jquery.js',
+                watched: false,
+                served: true,
+                included: true
+            },
+
+            // fixtures
+            {
+                pattern: 'test/fixtures/*.html',
+                watched: true,
+                included: false,
+                served: true
+            }
+        ],
 
 
         // systemjs config
         systemjs: {
-            configFile: '../public/js/system.conf.js',
+            baseURL: '.',
+
+            configFile: 'demo/js/system.conf.js',
 
             files: [
-                'test/vendor/jquery/dist/jquery.js',
-                'test/vendor/underscore/underscore.js',
-                'test/vendor/backbone/backbone.js',
                 'src/**/*.es6',
-                'test/unit/**/*.spec.js'
+                'test/unit/*.spec.js'
             ],
 
             config: {
                 baseURL: './',
 
                 paths: {
-                    'babel': 'test/node_modules/babel-core/browser.js',
-                    'app/*': 'src/app/*.es6',
-                    'lib/*': 'src/lib/*.es6',
-                    'bundles/*': 'src/bundles/*.es6',
-                    'framework/*': 'src/framework/*.es6',
-                    'parsing/*': 'src/parsing/*.es6'
-                },
-
-                map: {
-                    jquery: 'test/vendor/jquery/dist/jquery',
-                    underscore: 'test/vendor/underscore/underscore',
-                    backbone: 'test/vendor/backbone/backbone'
+                    'babel': 'node_modules/babel-core/browser.js',
+                    'image-preloader/*': 'src/image-preloader/*.es6'
                 }
             },
 
