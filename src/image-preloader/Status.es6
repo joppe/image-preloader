@@ -44,7 +44,7 @@ export class Status {
      * @returns {boolean}
      */
     isComplete() {
-        return this.total <= this.count;
+        return this.total === this.count;
     }
 
     progress() {
@@ -56,6 +56,10 @@ export class Status {
     }
 
     load() {
+        if (true === this.isComplete()) {
+            throw 'Status: cannot handle load, already complete';
+        }
+
         this.count += 1;
         this.listeners.load.apply(null, arguments);
 
@@ -63,6 +67,10 @@ export class Status {
     }
 
     error() {
+        if (true === this.isComplete()) {
+            throw 'Status: cannot handle load, already complete';
+        }
+
         this.count += 1;
         this.listeners.error.apply(null, arguments);
 

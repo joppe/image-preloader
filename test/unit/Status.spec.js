@@ -69,11 +69,10 @@ describe('Status', function () {
 
         s.load();
         expect(l).toBe(2);
-        expect(c).toBe(1);
-        expect(p).toBe(3);
         expect(s.isComplete()).toBe(true);
 
-        s.load();
-        expect(s.isComplete()).toBe(true);
+        expect(function () {
+            s.load();
+        }).toThrow('Status: cannot handle load, already complete');
     });
 });
