@@ -1,5 +1,5 @@
 dist/*
-demo/*
-!demo/system.conf.js
+demo/js
+!demo/js/system.conf.js
 .idea/
 node_modules/
