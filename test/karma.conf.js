@@ -72,7 +72,7 @@ module.exports = function (config) {
         plugins : [
             'karma-systemjs',
             'karma-jasmine',
-            'karma-chrome-launcher'
+            'karma-phantomjs-launcher'
         ],
 
 
@@ -101,7 +101,7 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
 
 
         // Continuous Integration mode
