@@ -1,54 +1,71 @@
-/*global describe, jasmine, it, expect, beforeEach*/
-/*
-import {merge} from 'image-preloader/Status';
-import {Status} from 'image-preloader/Status';
+/*global describe, it, expect, beforeEach*/
 
-describe('merge()', function () {
-    it('Return an empty object if no arguments are passed', function () {
-        expect(merge()).toEqual({});
-    });
+import {ImageLoader} from 'image-preloader/ImageLoader';
 
-    it('Copy all values of a passed argument', function () {
-        expect(merge({
-            foo: 'bar',
-            three: 3
-        })).toEqual({
-            foo: 'bar',
-            three: 3
-        });
-    });
+describe('ImageLoader', function () {
+    it('Should tell that the image is not loaded', function () {
+        let image = new Image(),
+            loader;
 
-    it('Copy all values of multiple passed arguments and give precedence to the last arguments value', function () {
-        expect(merge({
-            foo: 'foo',
-            two: 2
-        }, {
-            three: 3,
-            bar: 'bar'
-        }, {
-            foo: 'f00'
-        })).toEqual({
-            foo: 'f00',
-            bar: 'bar',
-            three: 3,
-            two: 2
-        });
+        image.setAttribute('src', 'http://lorempixel.com/400/200/sports/?foo=' + (new Date()).getTime());
+        loader = new ImageLoader(image);
+
+        expect(loader.isLoaded()).toBe(false);
     });
 });
 
-describe('Status', function () {
-    jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
+describe('ImageLoader', function () {
+    let src = 'http://lorempixel.com/400/200/sports/',
+        image = new Image(),
+        error = null,
+        success = null;
 
-    beforeEach(function () {
-        loadFixtures('single.html');
-    });
+    beforeEach(function (done) {
+        let loader;
 
-    it('the fixture file should be available', function () {
-        expect($('#container')).toExist();
-    });
+        image.setAttribute('src', src);
+        loader = new ImageLoader(image);
+        loader.load(function () {
+            success = true;
+            done();
+        }, function () {
+            error = true;
+            done();
+        });
 
-    it('should fail', function () {
-        expect(true).toBe(true);
+    }, 1000);
+
+    it('Should tell that the image is already loaded', function () {
+        let loader = new ImageLoader(image);
+
+        expect(success).toBe(true);
+        expect(error).toBe(null);
+        expect(loader.isLoaded()).toBe(true);
     });
 });
-/**/
+
+describe('ImageLoader, load existing image', function () {
+    let loader,
+        success = null,
+        error = null;
+
+    beforeEach(function (done) {
+        let image = new Image();
+
+        image.setAttribute('src', 'http://lorempixel.com/400/200/sports/?foo=' + (new Date()).getTime());
+        loader = new ImageLoader(image);
+
+        loader.load(function () {
+            success = true;
+            done();
+        }, function () {
+            error = true;
+            done();
+        });
+    }, 10000);
+
+    it('Should tell if an image is loaded', function () {
+        expect(success).toBe(true);
+        expect(error).toBe(null);
+    });
+});
