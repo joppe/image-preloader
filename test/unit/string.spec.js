@@ -1,3 +1,0 @@
-describe('Image path', function () {
-
-});
