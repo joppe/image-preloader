@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "babel-demo": "babel demo/es6 --stage 1 --out-dir demo/js --modules system",
+    "babel-demo": "babel demo/src --stage 1 --out-dir demo/js --modules system",
     "babel": "babel src --stage 1 --out-dir dist --modules system",
     "babel-watch": "babel src --stage 1 --watch --out-dir dist --modules system",
     "karma": "node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots"
