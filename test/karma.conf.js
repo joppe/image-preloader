@@ -51,7 +51,7 @@ module.exports = function (config) {
             configFile: 'demo/js/system.conf.js',
 
             files: [
-                'src/**/*.es6',
+                'src/**/*.js',
                 'test/unit/*.spec.js'
             ],
 
@@ -60,7 +60,7 @@ module.exports = function (config) {
 
                 paths: {
                     'babel': 'node_modules/babel-core/browser.js',
-                    'image-preloader/*': 'src/image-preloader/*.es6'
+                    'image-preloader/*': 'src/image-preloader/*.js'
                 }
             },
 

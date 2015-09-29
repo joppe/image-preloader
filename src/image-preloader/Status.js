@@ -51,7 +51,7 @@ export class Status {
         this.listeners.progress.apply(null, [this.count, this.total]);
 
         if (true === this.isComplete()) {
-            this.listeners.complete.apply(null, arguments);;
+            this.listeners.complete.apply(null, arguments);
         }
     }
 
