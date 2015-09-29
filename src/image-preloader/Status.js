@@ -68,7 +68,7 @@ export class Status {
 
     error() {
         if (true === this.isComplete()) {
-            throw 'Status: cannot handle load, already complete';
+            throw 'Status: cannot handle error, already complete';
         }
 
         this.count += 1;
