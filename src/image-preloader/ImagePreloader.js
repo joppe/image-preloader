@@ -35,7 +35,7 @@ export class ImagePreloader {
     /**
      * @param {Object} listeners
      */
-    start(listeners) {
+    load(listeners) {
         let status = new Status(this.loadables.length, listeners);
 
         this.loadables.forEach(function (loadable) {
