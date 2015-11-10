@@ -27,7 +27,7 @@ export class ImagePreloader {
 
         type = Object.prototype.toString.call(loadable);
 
-        if ('[object HTMLCollection]' === type || '[object Array]' === type) {
+        if ('[object NodeList]' === type || '[object HTMLCollection]' === type || '[object Array]' === type) {
             [].forEach.call(loadable, this.addLoadable.bind(this));
         } else if ('[object HTMLImageElement]' === type) {
             this.loadables.push(new ImageLoader(loadable));
