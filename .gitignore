@@ -1,6 +1,4 @@
 dist
 !dist/.gitkeep
-demo/js
-!demo/js/system.conf.js
 .idea/
 node_modules/
