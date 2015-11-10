@@ -25,5 +25,5 @@ karma_test:
 
 clean:
 	@echo "Cleanup installed files"
-	rm -rf node_modules
-	rm -rf dist/vendor
+	@rm -rf node_modules
+	@rm -rf dist/vendor
