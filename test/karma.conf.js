@@ -60,7 +60,7 @@ module.exports = function (config) {
 
                 paths: {
                     'babel': 'node_modules/babel-core/browser.js',
-                    'image-preloader/*': 'src/image-preloader/*.js'
+                    'image-preloader/*': 'src/image-preloader/*'
                 }
             },
 
@@ -72,8 +72,7 @@ module.exports = function (config) {
         plugins : [
             'karma-systemjs',
             'karma-jasmine',
-            //'karma-phantomjs-launcher'
-            'karma-chrome-launcher'
+            'karma-phantomjs-launcher'
         ],
 
 
@@ -102,8 +101,7 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome'],
-        //browsers: ['PhantomJS'],
+        browsers: ['PhantomJS'],
 
 
         // Continuous Integration mode
