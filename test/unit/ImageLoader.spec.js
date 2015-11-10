@@ -1,6 +1,6 @@
 /*global describe, it, expect, beforeEach*/
 
-import {ImageLoader} from 'image-preloader/ImageLoader';
+import {ImageLoader} from 'image-preloader/ImageLoader.js';
 
 describe('ImageLoader', function () {
     it('Should tell that the image is not loaded', function () {

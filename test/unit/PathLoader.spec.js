@@ -1,6 +1,6 @@
 /*global describe, it, expect, beforeEach*/
 
-import {PathLoader} from 'image-preloader/PathLoader';
+import {PathLoader} from 'image-preloader/PathLoader.js';
 
 describe('PathLoader, load existing image', function () {
     let success = null,

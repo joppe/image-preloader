@@ -1,7 +1,7 @@
 /*global describe, jasmine, it, expect, beforeEach*/
 
-import {merge} from 'image-preloader/Status';
-import {Status} from 'image-preloader/Status';
+import {merge} from 'image-preloader/Status.js';
+import {Status} from 'image-preloader/Status.js';
 
 describe('merge()', function () {
     it('Return an empty object if no arguments are passed', function () {

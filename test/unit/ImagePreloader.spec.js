@@ -1,6 +1,6 @@
 /*global describe, it, expect, beforeEach, loadFixtures*/
 
-import {ImagePreloader} from 'image-preloader/ImagePreloader';
+import {ImagePreloader} from 'image-preloader/ImagePreloader.js';
 
 describe('ImagePreloader', function () {
     it('Allows only HTMLCollection/Array/HTMLImageElement/String as argument for the constructor', function () {
