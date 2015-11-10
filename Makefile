@@ -17,8 +17,8 @@ babel:
 	$(PWD)/node_modules/babel/bin/babel.js src --stage 1 --out-dir dist --modules system
 
 bundle:
-    @echo "Bundle the javascript"
-    @node ./bundle.js
+	@echo "Bundle the javascript"
+	@node ./bundle.js
 
 setup: npm bower babel
 
