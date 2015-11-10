@@ -20,7 +20,7 @@ bundle:
 	@echo "Bundle the javascript"
 	@node ./bundle.js
 
-setup: npm bower babel
+setup: npm bower babel bundle
 
 karma_test:
 	@echo "Start karma test"
