@@ -22,3 +22,8 @@ setup: npm bower babel
 karma_test:
 	@echo "Start karma test"
 	@$(KARMA_BIN) start $(KARMA_CONFIG) --single-run --no-auto-watch --reporters dots
+
+clean:
+    @echo "Cleanup installed files"
+    rm -rf node_modules
+    rm -rf dist/vendor
