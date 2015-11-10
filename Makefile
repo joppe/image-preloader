@@ -14,8 +14,11 @@ bower:
 
 babel:
 	@echo "Transpile javascript"
-	$(PWD)/node_modules/babel/bin/babel.js demo/src --stage 1 --out-dir demo/js --modules system
 	$(PWD)/node_modules/babel/bin/babel.js src --stage 1 --out-dir dist --modules system
+
+bundle:
+    @echo "Bundle the javascript"
+    @node ./bundle.js
 
 setup: npm bower babel
 
@@ -25,5 +28,4 @@ karma_test:
 
 clean:
 	@echo "Cleanup installed files"
-	@rm -rf node_modules
-	@rm -rf dist/vendor
+	@ls | grep -v .gitkeep | xargs rm -rf
