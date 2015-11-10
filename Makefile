@@ -28,4 +28,4 @@ karma_test:
 
 clean:
 	@echo "Cleanup installed files"
-	@ls | grep -v .gitkeep | xargs rm -rf
+	@cd dist && ls | grep -v .gitkeep | xargs rm -rf
