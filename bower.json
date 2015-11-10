@@ -1,6 +1,10 @@
 {
     "name": "Image Preloader",
     "version": "2.0.0",
+    "dependencies": {
+        "es6-module-loader": "~0.17.8",
+        "system.js": "~0.19.5"
+    },
     "devDependencies": {
         "bootstrap": "~3.3.5",
         "jasmine-jquery": "~2.1.0",
