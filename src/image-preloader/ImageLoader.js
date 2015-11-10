@@ -1,5 +1,5 @@
-import {Loadable} from './Loadable'
-import {PathLoader} from './PathLoader'
+import {Loadable} from './Loadable.js'
+import {PathLoader} from './PathLoader.js'
 
 /**
  * @class ImageLoader

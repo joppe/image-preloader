@@ -1,6 +1,6 @@
-import {ImageLoader} from './ImageLoader';
-import {PathLoader} from './PathLoader';
-import {Status} from './Status';
+import {ImageLoader} from './ImageLoader.js';
+import {PathLoader} from './PathLoader.js';
+import {Status} from './Status.js';
 
 /**
  * @class ImagePreloader
