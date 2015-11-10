@@ -24,6 +24,6 @@ karma_test:
 	@$(KARMA_BIN) start $(KARMA_CONFIG) --single-run --no-auto-watch --reporters dots
 
 clean:
-    @echo "Cleanup installed files"
-    rm -rf node_modules
-    rm -rf dist/vendor
+	@echo "Cleanup installed files"
+	rm -rf node_modules
+	rm -rf dist/vendor
