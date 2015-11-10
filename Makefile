@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 PWD := /var/www/projects/image-preloader
-KARMA_BIN := /usr/local/bin/node node_modules/karma/bin/karma
+KARMA_BIN := node_modules/karma/bin/karma
 KARMA_CONFIG := $(PWD)/test/karma.conf.js
 
 npm:
@@ -21,7 +21,7 @@ setup: npm bower babel
 
 karma_test:
 	@echo "Start karma test"
-	@$(KARMA_BIN) start $(KARMA_CONFIG) --single-run --no-auto-watch --reporters dots
+	@node $(KARMA_BIN) start $(KARMA_CONFIG) --single-run --no-auto-watch --reporters dots
 
 clean:
 	@echo "Cleanup installed files"
