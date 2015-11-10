@@ -1,13 +1,11 @@
 /*global System*/
 
-var systemConfig = {
-        baseURL: '../',
+System.config({
+    baseURL: '../',
 
-        transpiler: 'babel',
+    transpiler: 'babel',
 
-        paths: {
-            'image-preloader/*': 'dist/image-preloader/*.js'
-        }
-    };
-
-System.config(systemConfig);
+    paths: {
+        'image-preloader/*': 'src/image-preloader/*.js'
+    }
+});
