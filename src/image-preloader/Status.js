@@ -57,6 +57,9 @@ export class Status {
         }
     }
 
+    /**
+     * @throws Will throw an error if it is already complete
+     */
     load() {
         if (true === this.isComplete()) {
             throw 'Status: cannot handle load, already complete';
@@ -68,6 +71,9 @@ export class Status {
         this.progress();
     }
 
+    /**
+     * @throws Will throw an error if it is already complete
+     */
     error() {
         if (true === this.isComplete()) {
             throw 'Status: cannot handle error, already complete';
