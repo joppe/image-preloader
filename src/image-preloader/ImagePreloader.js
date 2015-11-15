@@ -11,15 +11,21 @@ export class ImagePreloader {
      */
     constructor(...loadables) {
         this.loadables = [];
+        this.isLoading = false;
 
         this.addLoadable(loadables);
     }
 
     /**
      * @param {string|Array|HTMLImageElement|HTMLCollection} loadable
+     * @throws Throws an error when already loading
      */
     addLoadable(loadable) {
         let type;
+
+        if (true === this.isLoading) {
+            throw 'ImagePreloader is already loading';
+        }
 
         if (undefined === loadable) {
             return;
@@ -27,8 +33,10 @@ export class ImagePreloader {
 
         type = Object.prototype.toString.call(loadable);
 
-        // document.querySelectorAll will return a NodeList
-        // document.getElementsBy... will return a HTMLCollection
+        /**
+         * document.querySelectorAll will return a NodeList
+         * document.getElementsBy... will return a HTMLCollection
+         */
         if ('[object NodeList]' === type || '[object HTMLCollection]' === type || '[object Array]' === type) {
             [].forEach.call(loadable, this.addLoadable.bind(this));
         } else if ('[object HTMLImageElement]' === type) {
@@ -41,10 +49,19 @@ export class ImagePreloader {
     }
 
     /**
-     * @param {Object} listeners
+     * @param {Object} [listeners]
+     * @throws Throws an error when already loading
      */
     load(listeners) {
-        let status = new Status(this.loadables.length, listeners);
+        let status;
+
+        if (true === this.isLoading) {
+            throw 'ImagePreloader is already loading';
+        }
+
+        this.isLoading = true;
+
+        status = new Status(this.loadables.length, listeners);
 
         this.loadables.forEach(function (loadable) {
             loadable.load(status.load.bind(status), status.error.bind(status));
