@@ -1,7 +1,7 @@
 # Javascript Image Preloader
 
 A simple image preloader script.
-Preload images by path, element or array. The progress can be tracked by providing listener functions.
+Preload images by path, element. The progress can be tracked by providing callback functions.
 
 ## ImagePreloader
 
