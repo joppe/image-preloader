@@ -7,9 +7,9 @@ import {Status} from './Status.js';
  */
 export class ImagePreloader {
     /**
-     * @param {string|Array|HTMLImageElement} loadables
+     * @param {Array} loadables
      */
-    constructor(loadables) {
+    constructor(...loadables) {
         this.loadables = [];
 
         this.addLoadable(loadables);
