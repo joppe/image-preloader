@@ -1,25 +1,40 @@
 # Javascript Image Preloader
 
-With this jQuery plugin you can preload images.
+A simple image preloader script.
+Preload images by path, element or array. The progress can be tracked by providing listener functions.
 
-Usage
+## ImagePreloader
 
-```javascript
-$('img').preload({
-    finish: function (status) {
-        console.log('preload finished, total=' + tatus.total + '; loaded=' + status.loaded + '; failed=' + status.failed);
-    }
-});
-```
+The ImagePreloader can preload one of the following:
 
-The following functions can be defined as properies of the options object passed to the plugin:
+- HTMLImageElement
+- String, a path to an image
 
-- load, called when a single image is loaded. The processed jQuery image object is passed as argument.
-- progress, called after an image is processed (loaded or can't be loaded). A status object with loaded, failed an total properties is passed as argument.
-- finish, when all the images are processed. A status object with loaded, failed an total properties is passed as argument.
-- error, called when the image can't be loaded. This is triggered by the error event of an img element. The processed jQuery image object is passed as argument.
+These are called loadables.
 
-All functions are optional.
+
+The ImagePreloader has a method `addLoadable`. This method accepts one of the following types:
+
+- HTMLImageElement
+- String, a path to an image
+- NodeList, the result of a `document.querySelectorAll('...')`
+- HTMLCollection, the result of a `document.getElementsByClassName('...')`
+- Array, containing one (or a mix) of the above
+
+For the iteratable objects the `addLoadable` is called for each item.
+Loadables can also be added by passing them to the constructor of the ImagePreloader.
+
+Once all loadable's are added the ImagePreloader can start loading them. This is done by invoking the `load` method.
+The `load` method accepts an object with listener functions. These functions are supported:
+
+- `load`, when an image is successfully loaded
+- `error`, when an image could not be loaded
+- `progress`, called after a `load` or an `error`
+- `complete`, when all images are handled
+
+None of the functions are required. The ImagePreloader starts loading all images.
+Once the ImagePreloader is loading it is not allowed to add new loadables or to invoke the `load` method. An error will
+be thrown.
 
 ## Resources
 + [stackoverflow.com](http://stackoverflow.com/questions/1977871/check-if-an-image-is-loaded-no-errors-in-javascript)
