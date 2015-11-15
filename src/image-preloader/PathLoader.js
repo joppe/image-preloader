@@ -1,3 +1,5 @@
+/*global Image*/
+
 import {Loadable} from './Loadable.js';
 
 /**
