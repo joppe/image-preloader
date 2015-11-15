@@ -27,6 +27,8 @@ export class ImagePreloader {
 
         type = Object.prototype.toString.call(loadable);
 
+        // document.querySelectorAll will return a NodeList
+        // document.getElementsBy... will return a HTMLCollection
         if ('[object NodeList]' === type || '[object HTMLCollection]' === type || '[object Array]' === type) {
             [].forEach.call(loadable, this.addLoadable.bind(this));
         } else if ('[object HTMLImageElement]' === type) {
