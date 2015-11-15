@@ -4,6 +4,8 @@ import {merge} from 'image-preloader/Status.js';
 import {Status} from 'image-preloader/Status.js';
 
 describe('merge()', function () {
+    'use strict';
+
     it('Return an empty object if no arguments are passed', function () {
         expect(merge()).toEqual({});
     });
@@ -37,6 +39,8 @@ describe('merge()', function () {
 });
 
 describe('Status', function () {
+    'use strict';
+
     it('Call callbackfunction', function () {
         let p = 0,
             l = 0,

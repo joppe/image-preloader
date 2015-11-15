@@ -3,6 +3,8 @@
 import {PathLoader} from 'image-preloader/PathLoader.js';
 
 describe('PathLoader, load existing image', function () {
+    'use strict';
+
     let success = null,
         error = null;
 
@@ -25,6 +27,8 @@ describe('PathLoader, load existing image', function () {
 });
 
 describe('PathLoader, load non-existing image', function () {
+    'use strict';
+
     let success = null,
         error = null;
 

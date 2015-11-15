@@ -3,6 +3,8 @@
 import {ImageLoader} from 'image-preloader/ImageLoader.js';
 
 describe('ImageLoader', function () {
+    'use strict';
+
     it('Should tell that the image is not loaded', function () {
         let image = new Image(),
             loader;
@@ -15,6 +17,8 @@ describe('ImageLoader', function () {
 });
 
 describe('ImageLoader', function () {
+    'use strict';
+
     let src = 'http://lorempixel.com/400/200/sports/',
         image = new Image(),
         error = null,
@@ -45,6 +49,8 @@ describe('ImageLoader', function () {
 });
 
 describe('ImageLoader, load existing image', function () {
+    'use strict';
+
     let loader,
         success = null,
         error = null;

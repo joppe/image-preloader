@@ -3,6 +3,8 @@
 import {ImagePreloader} from 'image-preloader/ImagePreloader.js';
 
 describe('ImagePreloader', function () {
+    'use strict';
+
     it('Allows only HTMLCollection/Array/HTMLImageElement/String as argument for the constructor', function () {
         expect(function () {
             let l = new ImagePreloader(null);
@@ -39,6 +41,8 @@ describe('ImagePreloader', function () {
 });
 
 describe('ImagePreloader', function () {
+    'use strict';
+
     jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 
 
