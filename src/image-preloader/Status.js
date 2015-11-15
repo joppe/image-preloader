@@ -6,7 +6,7 @@ let defaultListeners = {
     };
 
 /**
- * @param {Array} sources
+ * @param {Object[]} sources
  * @returns {Object}
  */
 export function merge(...sources) {
