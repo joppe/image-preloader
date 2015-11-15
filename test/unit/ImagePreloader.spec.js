@@ -1,4 +1,4 @@
-/*global describe, it, expect, beforeEach, loadFixtures, Image*/
+/*global describe, it, expect, beforeEach, loadFixtures, Image, document*/
 
 import {ImagePreloader} from 'image-preloader/ImagePreloader.js';
 
@@ -7,7 +7,7 @@ describe('ImagePreloader', function () {
 
     it('Allows only HTMLCollection/Array/HTMLImageElement/String as argument for the constructor', function () {
         expect(function () {
-            let l = new ImagePreloader(null);
+            new ImagePreloader(null);
         }).toThrow();
 
         expect(function () {
@@ -47,12 +47,16 @@ describe('ImagePreloader', function () {
 
 
     let loader,
-        l = 0,
-        e = 0,
-        p = 0;
+        l,
+        e,
+        p;
 
     beforeEach(function (done) {
         loadFixtures('multiple.html');
+
+        l = 0;
+        e = 0;
+        p = 0;
 
         loader = new ImagePreloader();
         loader.addLoadable(document.getElementsByTagName('img'));
@@ -76,5 +80,17 @@ describe('ImagePreloader', function () {
         expect(p).toBe(5);
         expect(e).toBe(0);
         expect(l).toBe(5);
+    });
+
+    it('Load may only be invoked once', function () {
+        expect(function () {
+            loader.load();
+        }).toThrow();
+    });
+
+    it('When loading, addLoadable will fail', function () {
+        expect(function () {
+            loader.addLoadable([]);
+        }).toThrow();
     });
 });
