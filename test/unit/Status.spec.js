@@ -1,4 +1,4 @@
-/*global describe, jasmine, it, expect, beforeEach*/
+/*global describe, it, expect*/
 
 import {merge} from 'image-preloader/Status.js';
 import {Status} from 'image-preloader/Status.js';

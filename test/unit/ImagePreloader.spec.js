@@ -1,4 +1,4 @@
-/*global describe, it, expect, beforeEach, loadFixtures*/
+/*global describe, it, expect, beforeEach, loadFixtures, Image*/
 
 import {ImagePreloader} from 'image-preloader/ImagePreloader.js';
 
