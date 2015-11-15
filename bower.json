@@ -1,6 +1,21 @@
 {
-    "name": "Image Preloader",
+    "name": "image-preloader",
     "version": "2.0.0",
+    "main": [
+        "src/image-preloader/ImagePreloader.js"
+    ],
+    "keywords": [
+        "javascript",
+        "es2015",
+        "karma",
+        "Systemjs",
+        "Vanillajs",
+        "Image preloader"
+    ],
+    "authors": [
+        "Joppe Aarts <joppe@apestaartje.info"
+    ],
+    "license": "MIT",
     "dependencies": {
         "es6-module-loader": "~0.17.8",
         "system.js": "~0.19.5"
