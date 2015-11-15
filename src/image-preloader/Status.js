@@ -10,6 +10,8 @@ let defaultListeners = {
  * @returns {Object}
  */
 export function merge(...sources) {
+    'use strict';
+
     let target = {};
 
     sources.forEach(function (source) {
