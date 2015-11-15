@@ -3,12 +3,11 @@
   "private": true,
   "version": "2.0.0",
   "description": "Preloading images with javascript",
-  "main": "src/image-preloader/ImagePreloader.es6",
+  "main": "src/image-preloader/ImagePreloader.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "babel-demo": "babel demo/src --stage 1 --out-dir demo/js --modules system",
     "babel": "babel src --stage 1 --out-dir dist --modules system",
     "babel-watch": "babel src --stage 1 --watch --out-dir dist --modules system",
     "karma": "node node_modules/karma/bin/karma start test/karma.conf.js --single-run --no-auto-watch --reporters dots"
