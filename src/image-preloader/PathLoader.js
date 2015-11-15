@@ -1,4 +1,4 @@
-import {Loadable} from './Loadable.js'
+import {Loadable} from './Loadable.js';
 
 /**
  * @class PathLoader
