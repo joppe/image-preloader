@@ -36,6 +36,15 @@ None of the functions are required. The ImagePreloader starts loading all images
 Once the ImagePreloader is loading it is not allowed to add new loadables or to invoke the `load` method. An error will
 be thrown.
 
+## Installation
+
+The Image Preloader is written is es2015, if you want to use it in your project just include it with bower/jspm. If you
+want to play with the code use make. Type `make setup` to install node modules/bower packages, transpile babel and
+bundle all javascript to one file.
+The karma tests can be run with `make karma_test`.
+
+`make clean` will remove the node modules and the bower packages.
+
 ## Resources
 + [stackoverflow.com](http://stackoverflow.com/questions/1977871/check-if-an-image-is-loaded-no-errors-in-javascript)
 + [sajithmr.me](http://www.sajithmr.me/javascript-check-an-image-is-loaded-or-not/)
