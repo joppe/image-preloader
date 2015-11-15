@@ -3,6 +3,7 @@
 A simple image preloader script.
 Preload images by path, element. The progress can be tracked by providing callback functions.
 
+
 ## ImagePreloader
 
 The ImagePreloader can preload one of the following:
@@ -36,6 +37,7 @@ None of the functions are required. The ImagePreloader starts loading all images
 Once the ImagePreloader is loading it is not allowed to add new loadables or to invoke the `load` method. An error will
 be thrown.
 
+
 ## Installation
 
 The Image Preloader is written is es2015, if you want to use it in your project just include it with bower/jspm. If you
@@ -45,6 +47,30 @@ The karma tests can be run with `make karma_test`.
 
 `make clean` will remove the node modules and the bower packages.
 
+
+## jQuery
+
+This script was originally created as a jQuery plugin. Because nowadays browsers are mostly compatible with each other,
+jQuery is not necessary anymore.
+If you want to use this script as a jQuery plugin, use the following script:
+```
+(function ($) {
+    $.fn.imagePreloader = function (listeners) {
+        var i = new ImagePreloader();
+
+        this.each(function () {
+            i.addLoadable(this);
+        });
+
+        i.start(listeners);
+
+        return this;
+    };
+}(jQuery));
+```
+
+
 ## Resources
+
 + [stackoverflow.com](http://stackoverflow.com/questions/1977871/check-if-an-image-is-loaded-no-errors-in-javascript)
 + [sajithmr.me](http://www.sajithmr.me/javascript-check-an-image-is-loaded-or-not/)
