@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-PWD := /var/www/projects/image-preloader
+PWD := $(shell pwd)
 KARMA_BIN := node_modules/karma/bin/karma
 KARMA_CONFIG := $(PWD)/test/karma.conf.js
 
