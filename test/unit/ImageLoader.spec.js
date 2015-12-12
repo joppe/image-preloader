@@ -53,16 +53,20 @@ describe('ImageLoader, load existing image', function () {
 
     let loader,
         success = null,
-        error = null;
+        error = null,
+        image,
+        path,
+        img;
 
     beforeEach(function (done) {
-        let image = new Image();
-
+        image = new Image();
         image.setAttribute('src', 'http://lorempixel.com/400/200/sports/?foo=' + (new Date()).getTime());
         loader = new ImageLoader(image);
 
-        loader.load(function () {
+        loader.load(function (p, i) {
             success = true;
+            path = p;
+            img = i;
             done();
         }, function () {
             error = true;
@@ -73,5 +77,13 @@ describe('ImageLoader, load existing image', function () {
     it('Should tell if an image is loaded', function () {
         expect(success).toBe(true);
         expect(error).toBe(null);
+    });
+
+    it('The first argument of the load listener function is the path of the image', function () {
+        expect(path).toBe(image.getAttribute('src'));
+    });
+
+    it('The second argument of the load listener function is the image itself', function () {
+        expect(img).toBe(image);
     });
 });
