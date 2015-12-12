@@ -38,11 +38,11 @@ export class ImageLoader extends Loadable {
             success(this.image);
         } else {
             pathLoader = new PathLoader(this.image.getAttribute('src'));
-            pathLoader.load(function () {
-                success.call(null, this.image);
-            }.bind(this), function () {
-                error.call(null, this.image);
-            }.bind(this));
+            pathLoader.load((path) => {
+                success.apply(this, [path, this.image]);
+            }, (path) => {
+                error.apply(this, [path, this.image]);
+            });
         }
     }
 }
