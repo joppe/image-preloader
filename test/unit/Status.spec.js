@@ -61,7 +61,7 @@ describe('Status', function () {
                 }
             });
 
-        expect(s.total).toExist(3);
+        expect(s.total).toBe(3);
         expect(s.isComplete()).toBe(false);
 
         s.load();
