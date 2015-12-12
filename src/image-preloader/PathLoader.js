@@ -22,8 +22,12 @@ export class PathLoader extends Loadable {
     load(success, error) {
         let image = new Image();
 
-        image.addEventListener('load', success);
-        image.addEventListener('error', error);
+        image.addEventListener('load', () => {
+            success.call(this, this.path);
+        });
+        image.addEventListener('error', () => {
+            error.call(this, this.path);
+        });
 
         image.setAttribute('src', this.path);
     }
